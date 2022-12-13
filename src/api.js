@@ -33,7 +33,7 @@ router.get('/v1/movies/:id/videos', (req, res) => {
 
 app.use('/.netlify/functions/api', router)
 app.use(cors({
-  origin: "*"
+  origin: "http://localhost:3000/"
 }))
 
 module.exports.handler = serverless(app)
