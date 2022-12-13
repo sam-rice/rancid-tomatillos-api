@@ -10,6 +10,7 @@ const moviesDetails = require('../data/moviesDetails')
 const videos = require('../data/videos')
 
 router.get('/v1/movies', (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*")
   res.status(200).json({ movies })
 })
 
@@ -32,8 +33,6 @@ router.get('/v1/movies/:id/videos', (req, res) => {
 })
 
 app.use('/.netlify/functions/api', router)
-app.use(cors({
-  origin: "http://localhost:3000/"
-}))
+app.use(cors())
 
 module.exports.handler = serverless(app)
