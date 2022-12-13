@@ -1,5 +1,6 @@
 const express = require('express')
 const serverless = require('serverless-http')
+const cors = require('cors')
 
 const app = express()
 const router = express.Router()
@@ -31,5 +32,6 @@ router.get('/v1/movies/:id/videos', (req, res) => {
 })
 
 app.use('/.netlify/functions/api', router)
+app.use('cors()')
 
 module.exports.handler = serverless(app)
