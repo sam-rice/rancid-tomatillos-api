@@ -15,6 +15,7 @@ router.get('/v1/movies', (req, res) => {
 })
 
 router.get('/v1/movies/:id', (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*")
   const { id } = req.params
   const requestedMovie = moviesDetails.find(movie => movie.id == id)
 
@@ -26,6 +27,7 @@ router.get('/v1/movies/:id', (req, res) => {
 })
 
 router.get('/v1/movies/:id/videos', (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*")
   const { id } = req.params
   const requestedVideos = videos.filter(video => video.movie_id == id)
 
